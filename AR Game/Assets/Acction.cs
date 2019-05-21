@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Acction : MonoBehaviour
 {
@@ -54,8 +55,9 @@ public class Acction : MonoBehaviour
             {
                 reload = true;
             }
-            TestSeen();
         }
+
+        TestSeen();
 
         if (counter < 1.0f)
         {
@@ -89,13 +91,14 @@ public class Acction : MonoBehaviour
     {
         Debug.Log("SHOOT");
 
-        actionLabel.gameObject.SetActive(true);
-        actionLabel.text = "PUM!";
-        actionLabelShade.gameObject.SetActive(true);
-        actionLabelShade.text = "PUM!";
-
         if (gun_animation != null && ammonition > 0)
         {
+
+            actionLabel.gameObject.SetActive(true);
+            actionLabel.text = "PUM!";
+            actionLabelShade.gameObject.SetActive(true);
+            actionLabelShade.text = "PUM!";
+
             ammonition--;
             gun_animation.SetBool("Shoot", true);
             if (!opponent_action.protect)
