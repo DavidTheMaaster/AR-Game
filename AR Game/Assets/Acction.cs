@@ -16,6 +16,9 @@ public class Acction : MonoBehaviour
     private Acction opponent_action;
     private float counter = 5;
 
+    public Text actionLabel = null;
+    public Text actionLabelShade = null;
+
     void Start()
     {
         shoot = false;
@@ -73,12 +76,23 @@ public class Acction : MonoBehaviour
             }
         }
 
+        if (counter < -1)
+        {
+            actionLabel.gameObject.SetActive(false);
+            actionLabelShade.gameObject.SetActive(false);
+        }
+
         Timer();
     }
 
     void Shoot()
     {
         Debug.Log("SHOOT");
+
+        actionLabel.gameObject.SetActive(true);
+        actionLabel.text = "PUM!";
+        actionLabelShade.gameObject.SetActive(true);
+        actionLabelShade.text = "PUM!";
 
         if (gun_animation != null && ammonition > 0)
         {
@@ -97,11 +111,21 @@ public class Acction : MonoBehaviour
         action = false;
         ammonition += 1;
         Debug.Log("RECHARGE");
+
+        actionLabel.gameObject.SetActive(true);
+        actionLabel.text = "RELOAD!";
+        actionLabelShade.gameObject.SetActive(true);
+        actionLabelShade.text = "RELOAD!";
     }
 
     void Protect()
     {
         Debug.Log("PROTECT");
+
+        actionLabel.gameObject.SetActive(true);
+        actionLabel.text = "PROTECT!";
+        actionLabelShade.gameObject.SetActive(true);
+        actionLabelShade.text = "PROTECT!";
     }
 
     void TestSeen()

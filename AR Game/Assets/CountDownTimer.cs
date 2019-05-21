@@ -9,7 +9,7 @@ public class CountDownTimer : MonoBehaviour
     float startingTime = 5.0f;
 
     public Text label;
-    public Text goLabel;
+    public Text labelShade;
 
     void Start()
     {
@@ -18,10 +18,12 @@ public class CountDownTimer : MonoBehaviour
 
     void Update()
     {
-        currentTime -= 0.5f * Time.deltaTime;
+        currentTime -= 1.0f * Time.deltaTime;
 
-        if(currentTime > 4.0f)
+        if (currentTime > 4.0f)
         {
+            label.gameObject.SetActive(true);
+            labelShade.gameObject.SetActive(true);
             label.text = "3...";
         }
         else if (currentTime > 3.0f)
@@ -34,12 +36,14 @@ public class CountDownTimer : MonoBehaviour
         }
         else if (currentTime > 1.0f)
         {
-            label.gameObject.SetActive(false);
-            goLabel.gameObject.SetActive(true);
+            label.text = "GO!";
         }
         else if (currentTime > 0.0f)
         {
-            goLabel.gameObject.SetActive(false);
+            label.gameObject.SetActive(false);
+            labelShade.gameObject.SetActive(false);
         }
+
+        labelShade.text = label.text;
     }
 }
