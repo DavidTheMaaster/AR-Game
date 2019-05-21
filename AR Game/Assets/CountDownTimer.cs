@@ -11,13 +11,20 @@ public class CountDownTimer : MonoBehaviour
     public Text label;
     public Text labelShade;
 
+    AudioSource countdown_audio;
+
     void Start()
     {
+        countdown_audio = GetComponent<AudioSource>();
         currentTime = startingTime;
     }
 
     void Update()
     {
+        if(currentTime == 5.0f)
+        {
+            countdown_audio.Play();
+        }
         currentTime -= 1.0f * Time.deltaTime;
 
         if (currentTime > 4.0f)

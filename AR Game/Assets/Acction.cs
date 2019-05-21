@@ -138,6 +138,7 @@ public class Acction : MonoBehaviour
 
     void Protect()
     {
+        action = false;
         Debug.Log("PROTECT");
 
         actionLabel.gameObject.SetActive(true);
