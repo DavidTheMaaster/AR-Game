@@ -13,6 +13,9 @@ public class Acction : MonoBehaviour
     public bool shoot, protect, reload;
     private bool action = true;
 
+    public Text life_counter, life_shadow_counter;
+    public Text ammo_counter, ammo_shadow_counter;
+
     private bool gun_seen, ammo_seen, shield_seen;
     private Acction opponent_action;
     private float counter = 5;
@@ -84,6 +87,9 @@ public class Acction : MonoBehaviour
             actionLabelShade.gameObject.SetActive(false);
         }
 
+        if (counter < -2)
+            Reset();
+
         Timer();
     }
 
@@ -144,6 +150,11 @@ public class Acction : MonoBehaviour
                 gun_animation.SetBool("Shoot", false);
             }
         }
+
+        ammo_counter.text = ammonition.ToString();
+        ammo_shadow_counter.text = ammonition.ToString();
+        life_counter.text = life.ToString() + "/5";
+        life_shadow_counter.text = life.ToString() + "/5";
     }
 
     void Timer()

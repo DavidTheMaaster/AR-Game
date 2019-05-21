@@ -168,7 +168,7 @@ Animator:
   m_GameObject: {fileID: 12913589}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d86af23fba7980b40b3327cd6d0d9acb, type: 2}
+  m_Controller: {fileID: 9100000, guid: c5d08c7c8276baf4e820eff0a5a1b478, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1658,7 +1658,7 @@ Animator:
   m_GameObject: {fileID: 915317128}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d86af23fba7980b40b3327cd6d0d9acb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8d8865733257bdb41908d8e1418f7f59, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1865,8 +1865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 5
-  ammonition: 1
-  opponent: {fileID: 0}
+  ammonition: 0
+  opponent: {fileID: 1560895353}
   gun: {fileID: 1655159615}
   ammo: {fileID: 1546464046}
   shield: {fileID: 1451145461}
@@ -1874,6 +1874,10 @@ MonoBehaviour:
   shoot: 0
   protect: 0
   reload: 0
+  life_counter: {fileID: 1658385011}
+  life_shadow_counter: {fileID: 2087919729}
+  ammo_counter: {fileID: 683043115}
+  ammo_shadow_counter: {fileID: 29124234}
   actionLabel: {fileID: 1508341982}
   actionLabelShade: {fileID: 1215881330}
 --- !u!1 &965983553
@@ -2762,7 +2766,7 @@ RectTransform:
   m_GameObject: {fileID: 1215881328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1234884094}
   m_RootOrder: 2
@@ -2824,7 +2828,7 @@ Animator:
   m_GameObject: {fileID: 1215881328}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d86af23fba7980b40b3327cd6d0d9acb, type: 2}
+  m_Controller: {fileID: 9100000, guid: a9341098aba523440af3a257a77bdbb6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3393,7 +3397,7 @@ RectTransform:
   m_GameObject: {fileID: 1508341980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1234884094}
   m_RootOrder: 3
@@ -3455,7 +3459,7 @@ Animator:
   m_GameObject: {fileID: 1508341980}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d86af23fba7980b40b3327cd6d0d9acb, type: 2}
+  m_Controller: {fileID: 9100000, guid: b1a35b1c5d2a6264cb4a05c658cfc827, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3872,8 +3876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 5
-  ammonition: 1
-  opponent: {fileID: 0}
+  ammonition: 0
+  opponent: {fileID: 964262846}
   gun: {fileID: 547833205}
   ammo: {fileID: 1247931925}
   shield: {fileID: 1215127433}
@@ -3881,6 +3885,10 @@ MonoBehaviour:
   shoot: 0
   protect: 0
   reload: 0
+  life_counter: {fileID: 216982513}
+  life_shadow_counter: {fileID: 965983555}
+  ammo_counter: {fileID: 1125131204}
+  ammo_shadow_counter: {fileID: 942161651}
   actionLabel: {fileID: 12913592}
   actionLabelShade: {fileID: 915317131}
 --- !u!1 &1608936922
