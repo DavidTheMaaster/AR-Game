@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14b0e34aadf36648abf43e30e4d5d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTime: 0
   label: {fileID: 734256605}
   goLabel: {fileID: 1834958656}
 --- !u!1 &418383986
@@ -2138,10 +2139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55b5810a17b27f4d938aa84c129ad8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 5
+  ammonition: 0
+  opponent: {fileID: 1560895353}
   gun: {fileID: 1655159615}
   ammo: {fileID: 1546464046}
   shield: {fileID: 1451145461}
   gun_animation: {fileID: 0}
+  shoot: 0
+  protect: 0
+  reload: 0
 --- !u!1 &965983553
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,10 +3711,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55b5810a17b27f4d938aa84c129ad8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 5
+  ammonition: 0
+  opponent: {fileID: 964262846}
   gun: {fileID: 547833205}
   ammo: {fileID: 1247931925}
   shield: {fileID: 1215127433}
   gun_animation: {fileID: 0}
+  shoot: 0
+  protect: 0
+  reload: 0
 --- !u!43 &1568554667
 Mesh:
   m_ObjectHideFlags: 0

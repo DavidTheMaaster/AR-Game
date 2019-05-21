@@ -30,6 +30,11 @@ public class Acction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey("w"))
+        {
+            Reset();
+        }
+
         if (counter < 2.0f && counter > 1.0f)
         {
             if (!gun_seen && !ammo_seen && shield_seen)
