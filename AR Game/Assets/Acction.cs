@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Acction : MonoBehaviour
@@ -169,5 +170,12 @@ public class Acction : MonoBehaviour
         reload = false;
         GameObject.Find("Canvas").GetComponent<CountDownTimer>().currentTime = 5.0f;
         action = true;
+        if(life == 0)
+        {
+            if (transform.gameObject.name == "Player Blue")
+                SceneManager.LoadScene("RetryRedWins");
+            if (transform.gameObject.name == "Player Red")
+                SceneManager.LoadScene("RetryBlueWins");
+        }
     }
 }
