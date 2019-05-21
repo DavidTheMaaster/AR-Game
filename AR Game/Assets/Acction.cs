@@ -4,37 +4,66 @@ using UnityEngine;
 
 public class Acction : MonoBehaviour
 {
+    public int life = 5;
+    public int ammonition = 1;
+    public GameObject opponent;
     public GameObject gun, ammo, shield;
     public Animator gun_animation;
+    public bool shoot, protect, reload;
+    private bool action = true;
+
     private bool gun_seen, ammo_seen, shield_seen;
-    private int counter = 0;
+    private Acction opponent_action;
+    private float counter = 5;
 
     void Start()
     {
+        shoot = false;
+        protect = false;
+        reload = false;
+        counter = GameObject.Find("Canvas").GetComponent<CountDownTimer>().currentTime;
         gun_animation = gun.transform.GetChild(0).GetComponent<Animator>();
+        opponent_action = opponent.GetComponent<Acction>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (counter == 0)
+        if (counter < 1)
         {
             if (!gun_seen && !ammo_seen && shield_seen)
             {
-                Protect();
+                protect = true;
             }
 
             if (!shield_seen && !ammo_seen && gun_seen)
             {
-                Shoot();
+                shoot = true;
             }
 
             if (!gun_seen && !shield_seen && ammo_seen)
             {
-                Recharge();
+                reload = true;
             }
 
             TestSeen();
+        }
+
+        if (action)
+        {
+            if (protect)
+            {
+                Protect();
+            }
+            if (shoot)
+            {
+                Shoot();
+            }
+            if (reload)
+            {
+                Recharge();
+            }
         }
 
         Timer();
@@ -44,14 +73,21 @@ public class Acction : MonoBehaviour
     {
         Debug.Log("SHOOT");
 
-        if(gun_animation != null)
+        if (gun_animation != null)
         {
             gun_animation.SetBool("Shoot", true);
+            if (!opponent_action.protect)
+            {
+                opponent_action.life--;
+                action = false;
+            }
         }
     }
 
     void Recharge()
     {
+        action = false;
+        ammonition += 1;
         Debug.Log("RECHARGE");
     }
 
@@ -77,6 +113,6 @@ public class Acction : MonoBehaviour
 
     void Timer()
     {
-
+        counter = GameObject.Find("Canvas").GetComponent<CountDownTimer>().currentTime;
     }
 }
