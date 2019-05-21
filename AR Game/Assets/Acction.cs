@@ -34,9 +34,9 @@ public class Acction : MonoBehaviour
         gun_animation = gun.transform.GetChild(0).GetComponent<Animator>();
         opponent_action = opponent.GetComponent<Acction>();
 
-        shootSound = gameObject.GetComponent<AudioSource>();
-        shieldSound = gameObject.GetComponent<AudioSource>();
-        reloadSound = gameObject.GetComponent<AudioSource>();
+        shootSound = gun.GetComponent<AudioSource>();
+        shieldSound = shield.GetComponent<AudioSource>();
+        reloadSound = ammo.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
