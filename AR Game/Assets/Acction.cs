@@ -13,6 +13,7 @@ public class Acction : MonoBehaviour
     public Animator gun_animation;
     public bool shoot, protect, reload;
     private bool action = true;
+    private AudioSource shootSound, shieldSound, reloadSound;
 
     public Text life_counter, life_shadow_counter;
     public Text ammo_counter, ammo_shadow_counter;
@@ -33,6 +34,9 @@ public class Acction : MonoBehaviour
         gun_animation = gun.transform.GetChild(0).GetComponent<Animator>();
         opponent_action = opponent.GetComponent<Acction>();
 
+        shootSound = gameObject.GetComponent<AudioSource>();
+        shieldSound = gameObject.GetComponent<AudioSource>();
+        reloadSound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -106,6 +110,8 @@ public class Acction : MonoBehaviour
             actionLabelShade.gameObject.SetActive(true);
             actionLabelShade.text = "PUM!";
 
+            shootSound.Play();
+
             ammonition--;
             gun_animation.SetBool("Shoot", true);
             if (!opponent_action.protect)
@@ -126,6 +132,8 @@ public class Acction : MonoBehaviour
         actionLabel.text = "RELOAD!";
         actionLabelShade.gameObject.SetActive(true);
         actionLabelShade.text = "RELOAD!";
+
+        reloadSound.Play();
     }
 
     void Protect()
@@ -136,6 +144,8 @@ public class Acction : MonoBehaviour
         actionLabel.text = "PROTECT!";
         actionLabelShade.gameObject.SetActive(true);
         actionLabelShade.text = "PROTECT!";
+
+        shieldSound.Play();
     }
 
     void TestSeen()
