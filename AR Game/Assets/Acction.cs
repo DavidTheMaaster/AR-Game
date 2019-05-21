@@ -5,7 +5,7 @@ using UnityEngine;
 public class Acction : MonoBehaviour
 {
     public int life = 5;
-    public int ammonition = 1;
+    public int ammonition = 0;
     public GameObject opponent;
     public GameObject gun, ammo, shield;
     public Animator gun_animation;
@@ -30,7 +30,7 @@ public class Acction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counter < 1)
+        if (counter < 2.0f && counter > 1.0f)
         {
             if (!gun_seen && !ammo_seen && shield_seen)
             {
@@ -46,23 +46,25 @@ public class Acction : MonoBehaviour
             {
                 reload = true;
             }
-
             TestSeen();
         }
 
-        if (action)
+        if (counter < 1.0f)
         {
-            if (protect)
+            if (action)
             {
-                Protect();
-            }
-            if (shoot)
-            {
-                Shoot();
-            }
-            if (reload)
-            {
-                Recharge();
+                if (protect)
+                {
+                    Protect();
+                }
+                if (shoot)
+                {
+                    Shoot();
+                }
+                if (reload)
+                {
+                    Recharge();
+                }
             }
         }
 
@@ -73,8 +75,9 @@ public class Acction : MonoBehaviour
     {
         Debug.Log("SHOOT");
 
-        if (gun_animation != null)
+        if (gun_animation != null && ammonition > 0)
         {
+            ammonition--;
             gun_animation.SetBool("Shoot", true);
             if (!opponent_action.protect)
             {
@@ -114,5 +117,14 @@ public class Acction : MonoBehaviour
     void Timer()
     {
         counter = GameObject.Find("Canvas").GetComponent<CountDownTimer>().currentTime;
+    }
+
+    void Reset()
+    {
+        shoot = false;
+        protect = false;
+        reload = false;
+        GameObject.Find("Canvas").GetComponent<CountDownTimer>().currentTime = 5.0f;
+        action = true;
     }
 }
