@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RetryRedWins.unity
     guid: f6c962e5d7e04674995157e04aa9a76e
+  - enabled: 1
+    path: Assets/Scenes/RetryTie.unity
+    guid: 83224682e5b528a41a4f8c804bfe77ea
   m_configObjects: {}
